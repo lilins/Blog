@@ -1,19 +1,11 @@
-const babel = require('@babel/core')
-// const optionsObject = require('./babel.config');
+const babel = require("@babel/core");
 
-const code = a => {
-  a = 'sd'
-  class C { 
-    constructor(name){
-      this.name = name
-    }
-  }
-  const clazz = new C(a)
-  return clazz
-}
+const code = a => a;
 
 babel.transform(code, {
-  plugins: ['@babel/plugin-transform-runtime'],
-}, function (err, result) {
-  console.assert(result)
-})
+  plugins: [
+    "@babel/plugin-transform-arrow-functions"
+  ]
+}, function(err, result){
+  console.log(result.code)
+});
